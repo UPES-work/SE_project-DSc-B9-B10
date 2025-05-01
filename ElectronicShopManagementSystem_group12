@@ -8,7 +8,7 @@ The Electronic Shop Management System is a Java-based desktop application that s
 🔧 Tools & Technologies Used
 
 - Programming Language: Java
-- GUI: Java Swing
+- GUI: JavaFX
 - Database: MySQL
 - Database Connectivity: JDBC
 - IDE: Visual Studio Code
