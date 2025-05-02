@@ -1,0 +1,211 @@
+---
+
+Grocery Store Management System
+
+A simple console-based application written in C to manage the operations of a grocery store. The system handles inventory, billing, and data persistence through binary file handling.
+
+
+---
+
+Table of Contents
+
+Package Dependencies
+
+Technologies Used
+
+How to Run the Project
+
+Problem Statement
+
+Key Features
+
+Target Users
+
+SDLC Model
+
+Requirements Gathering Approach
+
+Testing Methodology
+
+Challenges and Solutions
+
+Deployment Instructions
+
+Future Enhancements
+
+Team Members
+
+
+
+---
+
+Package Dependencies
+
+Standard C Libraries (stdio.h, stdlib.h, string.h)
+
+No third-party libraries required
+
+
+
+---
+
+Technologies Used
+
+Programming Language: C
+
+Interface: Command Line Interface (CLI)
+
+Data Persistence: Binary File I/O (products.dat)
+
+
+
+
+
+
+
+
+Problem Statement
+
+Managing a grocery store manually is time-consuming and error-prone. This project automates core store functions like inventory control, billing, and data persistence in a lightweight and accessible CLI-based tool.
+
+
+---
+
+Key Features
+
+Add, edit, delete, and view products
+
+Product search with partial matching
+
+Billing system with total calculation
+
+Inventory updates after checkout
+
+Save/load data to/from a binary file
+
+Easy-to-navigate text menus
+
+
+
+---
+
+Target Users
+
+Small grocery store owners
+
+Inventory managers
+
+Students learning C and file handling
+
+CLI-based application users
+
+
+
+---
+
+SDLC Model
+
+Waterfall Model was adopted, following these phases:
+
+1. Requirement analysis
+
+
+2. Design
+
+
+3. Implementation
+
+
+4. Testing
+
+
+5. Deployment
+
+
+6. Maintenance
+
+
+
+
+---
+
+Requirements Gathering Approach
+
+Brainstorming among team members
+
+Faculty consultation for scope validation
+
+Iterative refinement of feature set
+
+Drafting functional and non-functional requirements in an SRS
+
+
+
+---
+
+Testing Methodology
+
+Manual testing for all functionalities
+
+Unit testing of features like add, delete, and billing
+
+Boundary testing for product limits (MAX_PRODUCTS = 100)
+
+File operation testing to ensure data persistence
+
+
+
+---
+
+Challenges and Solutions
+
+File Corruption: Ensured proper open/close of files to prevent data loss
+
+Data Overwrites: Added product ID validation to avoid conflicts
+
+Inventory Overflow: Set a hard cap of 100 items using array limits
+
+CLI Usability: Designed clear menus and prompts to reduce user errors
+
+
+
+---
+
+Deployment Instructions
+
+No deployment required. This is a console application:
+
+Works on Windows, Linux, and macOS with a C compiler
+
+No internet or external setup required
+
+Executable can be shared and run independently
+
+
+
+---
+
+Future Enhancements
+
+GUI integration using C++ or Java (Swing)
+
+Transition from binary to relational database
+
+Product categories and user authentication
+
+Report generation (daily/weekly sales)
+
+Integration with barcode scanners
+
+
+
+---
+
+Team Members
+
+Divyanshu Raj 
+500120232
+B9
+
+Arnav singh
+500124291 (BATCH -9)
