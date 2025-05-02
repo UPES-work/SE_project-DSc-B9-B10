@@ -1,0 +1,86 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './App.css';
+
+function App() {
+    const [trains, setTrains] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/api/trains")
+            .then(res => setTrains(res.data))
+            .catch(err => console.error(err));
+    }, []);
+
+    return (
+        <div className="App">
+            <h1 className="header">🚆 RailNet Dashboard</h1>
+            <div className="train-list">
+                {trains.map(train => (
+                    <div key={train._id} className="train-card">
+                        <h2>{train.name}</h2>
+                        <p><strong>Status:</strong> {train.status}</p>
+                        <p><strong>Location:</strong> {train.location}</p>
+                        <p><strong>Arrival:</strong> {train.arrivalTime}</p>
+                        <p><strong>Departure:</strong> {train.departureTime}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default App;
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const trainRoutes = require("./routes/trains");
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Connect to MongoDB
+mongoose.connect("mongodb://127.0.0.1:27017/railnet", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}).then(() => console.log("MongoDB connected"))
+  .catch(err => console.error("MongoDB error:", err));
+
+// API routes
+app.use("/api/trains", trainRoutes);
+
+// Start the server
+app.listen(5000, () => {
+    console.log("Server is running on http://localhost:5000");
+});
+
+const express = require("express");
+const router = express.Router();
+const Train = require("../models/Train");
+
+// Get all trains
+router.get("/", async (req, res) => {
+    const trains = await Train.find();
+    res.json(trains);
+});
+
+// Add new train
+router.post("/", async (req, res) => {
+    const train = new Train(req.body);
+    await train.save();
+    res.status(201).json(train);
+});
+
+module.exports = router;
+
+const mongoose = require("mongoose");
+
+const trainSchema = new mongoose.Schema({
+    name: String,
+    status: String,
+    location: String,
+    arrivalTime: String,
+    departureTime: String
+});
+
+module.exports = mongoose.model("Train", trainSchema);
